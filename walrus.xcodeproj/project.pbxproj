@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B9BC6AD29CB821F0571BE94 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 33245033F1576EF0D7D81B81 /* libPods.a */; };
 		E354ED871A2C32A1003421A6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E354ED861A2C32A1003421A6 /* AppDelegate.swift */; };
 		E354ED8A1A2C32A1003421A6 /* walrus.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E354ED881A2C32A1003421A6 /* walrus.xcdatamodeld */; };
 		E354ED8C1A2C32A1003421A6 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E354ED8B1A2C32A1003421A6 /* MasterViewController.swift */; };
@@ -15,6 +16,17 @@
 		E354ED931A2C32A1003421A6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E354ED921A2C32A1003421A6 /* Images.xcassets */; };
 		E354ED961A2C32A1003421A6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E354ED941A2C32A1003421A6 /* LaunchScreen.xib */; };
 		E354EDA21A2C32A1003421A6 /* walrusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E354EDA11A2C32A1003421A6 /* walrusTests.swift */; };
+		E3EA39F81A315BCB002D932C /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3EA39F71A315BCB002D932C /* UIImageExtensions.swift */; };
+		E3F5C4DD1A302BE70054AE7C /* Receipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F5C4DC1A302BE70054AE7C /* Receipt.swift */; };
+		E3F5C5101A3052F10054AE7C /* eng.cube.bigrams in CopyFiles */ = {isa = PBXBuildFile; fileRef = E3F5C4FD1A30526E0054AE7C /* eng.cube.bigrams */; };
+		E3F5C5111A3052F10054AE7C /* eng.cube.fold in CopyFiles */ = {isa = PBXBuildFile; fileRef = E3F5C4FE1A30526E0054AE7C /* eng.cube.fold */; };
+		E3F5C5121A3052F10054AE7C /* eng.cube.lm in CopyFiles */ = {isa = PBXBuildFile; fileRef = E3F5C4FF1A30526E0054AE7C /* eng.cube.lm */; };
+		E3F5C5131A3052F10054AE7C /* eng.cube.nn in CopyFiles */ = {isa = PBXBuildFile; fileRef = E3F5C5001A30526E0054AE7C /* eng.cube.nn */; };
+		E3F5C5141A3052F10054AE7C /* eng.cube.params in CopyFiles */ = {isa = PBXBuildFile; fileRef = E3F5C5011A30526E0054AE7C /* eng.cube.params */; };
+		E3F5C5151A3052F10054AE7C /* eng.cube.size in CopyFiles */ = {isa = PBXBuildFile; fileRef = E3F5C5021A30526E0054AE7C /* eng.cube.size */; };
+		E3F5C5161A3052F10054AE7C /* eng.cube.word-freq in CopyFiles */ = {isa = PBXBuildFile; fileRef = E3F5C5031A30526E0054AE7C /* eng.cube.word-freq */; };
+		E3F5C5171A3052F10054AE7C /* eng.tesseract_cube.nn in CopyFiles */ = {isa = PBXBuildFile; fileRef = E3F5C5041A30526E0054AE7C /* eng.tesseract_cube.nn */; };
+		E3F5C5181A3052F10054AE7C /* eng.traineddata in CopyFiles */ = {isa = PBXBuildFile; fileRef = E3F5C5051A30526E0054AE7C /* eng.traineddata */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,7 +39,32 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		E3F5C4E31A30411F0054AE7C /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 12;
+			dstPath = tessdata;
+			dstSubfolderSpec = 7;
+			files = (
+				E3F5C5101A3052F10054AE7C /* eng.cube.bigrams in CopyFiles */,
+				E3F5C5111A3052F10054AE7C /* eng.cube.fold in CopyFiles */,
+				E3F5C5121A3052F10054AE7C /* eng.cube.lm in CopyFiles */,
+				E3F5C5131A3052F10054AE7C /* eng.cube.nn in CopyFiles */,
+				E3F5C5141A3052F10054AE7C /* eng.cube.params in CopyFiles */,
+				E3F5C5151A3052F10054AE7C /* eng.cube.size in CopyFiles */,
+				E3F5C5161A3052F10054AE7C /* eng.cube.word-freq in CopyFiles */,
+				E3F5C5171A3052F10054AE7C /* eng.tesseract_cube.nn in CopyFiles */,
+				E3F5C5181A3052F10054AE7C /* eng.traineddata in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		33245033F1576EF0D7D81B81 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		7227CE7DEEA2861DF7D1B46C /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		CB04FD57FFC938AD0B03EA14 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		E32450EB1A2C412F00335872 /* walrus-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "walrus-Bridging-Header.h"; sourceTree = "<group>"; };
 		E354ED811A2C32A1003421A6 /* walrus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = walrus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E354ED851A2C32A1003421A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E354ED861A2C32A1003421A6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -40,6 +77,17 @@
 		E354ED9B1A2C32A1003421A6 /* walrusTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = walrusTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E354EDA01A2C32A1003421A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E354EDA11A2C32A1003421A6 /* walrusTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = walrusTests.swift; sourceTree = "<group>"; };
+		E3EA39F71A315BCB002D932C /* UIImageExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIImageExtensions.swift; path = ../UIImageExtensions.swift; sourceTree = "<group>"; };
+		E3F5C4DC1A302BE70054AE7C /* Receipt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Receipt.swift; sourceTree = "<group>"; };
+		E3F5C4FD1A30526E0054AE7C /* eng.cube.bigrams */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = eng.cube.bigrams; path = walrus/tessdata/eng.cube.bigrams; sourceTree = "<group>"; };
+		E3F5C4FE1A30526E0054AE7C /* eng.cube.fold */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = eng.cube.fold; path = walrus/tessdata/eng.cube.fold; sourceTree = "<group>"; };
+		E3F5C4FF1A30526E0054AE7C /* eng.cube.lm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.lex; name = eng.cube.lm; path = walrus/tessdata/eng.cube.lm; sourceTree = "<group>"; };
+		E3F5C5001A30526E0054AE7C /* eng.cube.nn */ = {isa = PBXFileReference; lastKnownFileType = file; name = eng.cube.nn; path = walrus/tessdata/eng.cube.nn; sourceTree = "<group>"; };
+		E3F5C5011A30526E0054AE7C /* eng.cube.params */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = eng.cube.params; path = walrus/tessdata/eng.cube.params; sourceTree = "<group>"; };
+		E3F5C5021A30526E0054AE7C /* eng.cube.size */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = eng.cube.size; path = walrus/tessdata/eng.cube.size; sourceTree = "<group>"; };
+		E3F5C5031A30526E0054AE7C /* eng.cube.word-freq */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "eng.cube.word-freq"; path = "walrus/tessdata/eng.cube.word-freq"; sourceTree = "<group>"; };
+		E3F5C5041A30526E0054AE7C /* eng.tesseract_cube.nn */ = {isa = PBXFileReference; lastKnownFileType = file; name = eng.tesseract_cube.nn; path = walrus/tessdata/eng.tesseract_cube.nn; sourceTree = "<group>"; };
+		E3F5C5051A30526E0054AE7C /* eng.traineddata */ = {isa = PBXFileReference; lastKnownFileType = file; name = eng.traineddata; path = walrus/tessdata/eng.traineddata; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B9BC6AD29CB821F0571BE94 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,12 +109,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04E21078AC6FC20D5AE42A7D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CB04FD57FFC938AD0B03EA14 /* Pods.debug.xcconfig */,
+				7227CE7DEEA2861DF7D1B46C /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		2DAD526859B68B179AD6C390 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				33245033F1576EF0D7D81B81 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E354ED781A2C32A1003421A6 = {
 			isa = PBXGroup;
 			children = (
+				E32450EB1A2C412F00335872 /* walrus-Bridging-Header.h */,
+				E3F5C5061A30526E0054AE7C /* tesserect */,
 				E354ED831A2C32A1003421A6 /* walrus */,
 				E354ED9E1A2C32A1003421A6 /* walrusTests */,
 				E354ED821A2C32A1003421A6 /* Products */,
+				04E21078AC6FC20D5AE42A7D /* Pods */,
+				2DAD526859B68B179AD6C390 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -81,6 +151,7 @@
 		E354ED831A2C32A1003421A6 /* walrus */ = {
 			isa = PBXGroup;
 			children = (
+				E3EA39F71A315BCB002D932C /* UIImageExtensions.swift */,
 				E354ED861A2C32A1003421A6 /* AppDelegate.swift */,
 				E354ED8B1A2C32A1003421A6 /* MasterViewController.swift */,
 				E354ED8D1A2C32A1003421A6 /* DetailViewController.swift */,
@@ -88,6 +159,7 @@
 				E354ED921A2C32A1003421A6 /* Images.xcassets */,
 				E354ED941A2C32A1003421A6 /* LaunchScreen.xib */,
 				E354ED881A2C32A1003421A6 /* walrus.xcdatamodeld */,
+				E3F5C4DC1A302BE70054AE7C /* Receipt.swift */,
 				E354ED841A2C32A1003421A6 /* Supporting Files */,
 			);
 			path = walrus;
@@ -118,6 +190,22 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		E3F5C5061A30526E0054AE7C /* tesserect */ = {
+			isa = PBXGroup;
+			children = (
+				E3F5C4FD1A30526E0054AE7C /* eng.cube.bigrams */,
+				E3F5C4FE1A30526E0054AE7C /* eng.cube.fold */,
+				E3F5C4FF1A30526E0054AE7C /* eng.cube.lm */,
+				E3F5C5001A30526E0054AE7C /* eng.cube.nn */,
+				E3F5C5011A30526E0054AE7C /* eng.cube.params */,
+				E3F5C5021A30526E0054AE7C /* eng.cube.size */,
+				E3F5C5031A30526E0054AE7C /* eng.cube.word-freq */,
+				E3F5C5041A30526E0054AE7C /* eng.tesseract_cube.nn */,
+				E3F5C5051A30526E0054AE7C /* eng.traineddata */,
+			);
+			name = tesserect;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -125,9 +213,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E354EDA51A2C32A1003421A6 /* Build configuration list for PBXNativeTarget "walrus" */;
 			buildPhases = (
+				A9A3DB1F3EDEB85DA0243AEC /* Check Pods Manifest.lock */,
 				E354ED7D1A2C32A1003421A6 /* Sources */,
 				E354ED7E1A2C32A1003421A6 /* Frameworks */,
 				E354ED7F1A2C32A1003421A6 /* Resources */,
+				E3F5C4E31A30411F0054AE7C /* CopyFiles */,
+				86ECED7FEAB3AD331FE0AA2F /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -167,6 +258,7 @@
 				TargetAttributes = {
 					E354ED801A2C32A1003421A6 = {
 						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = 5Q2HA6D5C8;
 					};
 					E354ED9A1A2C32A1003421A6 = {
 						CreatedOnToolsVersion = 6.1;
@@ -213,13 +305,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		86ECED7FEAB3AD331FE0AA2F /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A9A3DB1F3EDEB85DA0243AEC /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E354ED7D1A2C32A1003421A6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3F5C4DD1A302BE70054AE7C /* Receipt.swift in Sources */,
 				E354ED871A2C32A1003421A6 /* AppDelegate.swift in Sources */,
 				E354ED8A1A2C32A1003421A6 /* walrus.xcdatamodeld in Sources */,
+				E3EA39F81A315BCB002D932C /* UIImageExtensions.swift in Sources */,
 				E354ED8C1A2C32A1003421A6 /* MasterViewController.swift in Sources */,
 				E354ED8E1A2C32A1003421A6 /* DetailViewController.swift in Sources */,
 			);
@@ -344,21 +471,27 @@
 		};
 		E354EDA61A2C32A1003421A6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CB04FD57FFC938AD0B03EA14 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = walrus/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "walrus-Bridging-Header.h";
 			};
 			name = Debug;
 		};
 		E354EDA71A2C32A1003421A6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7227CE7DEEA2861DF7D1B46C /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = walrus/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "walrus-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -415,6 +548,7 @@
 				E354EDA71A2C32A1003421A6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E354EDA81A2C32A1003421A6 /* Build configuration list for PBXNativeTarget "walrusTests" */ = {
 			isa = XCConfigurationList;
@@ -423,6 +557,7 @@
 				E354EDAA1A2C32A1003421A6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

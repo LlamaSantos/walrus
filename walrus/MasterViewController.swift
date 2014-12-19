@@ -8,12 +8,15 @@
 
 import UIKit
 import CoreData
+import AVFoundation
+import ImageIO
 
-class MasterViewController: UITableViewController, NSFetchedResultsControllerDelegate {
+class MasterViewController: UITableViewController, NSFetchedResultsControllerDelegate,UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     var detailViewController: DetailViewController? = nil
     var managedObjectContext: NSManagedObjectContext? = nil
-
+    var imagePickerController : UIImagePickerController!
+    var receipts : [Receipt]!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,38 +31,75 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         // Do any additional setup after loading the view, typically from a nib.
         self.navigationItem.leftBarButtonItem = self.editButtonItem()
 
-        let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "insertNewObject:")
+        let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "showImagePicker:")
         self.navigationItem.rightBarButtonItem = addButton
         if let split = self.splitViewController {
             let controllers = split.viewControllers
             self.detailViewController = controllers[controllers.count-1].topViewController as? DetailViewController
         }
+        
+        // -- Load everything up.
+        receipts = Receipt.findAll() as [Receipt]
+        println(receipts)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    func insertNewObject(sender: AnyObject) {
-        let context = self.fetchedResultsController.managedObjectContext
-        let entity = self.fetchedResultsController.fetchRequest.entity!
-        let newManagedObject = NSEntityDescription.insertNewObjectForEntityForName(entity.name!, inManagedObjectContext: context) as NSManagedObject
-             
-        // If appropriate, configure the new managed object.
-        // Normally you should use accessor methods, but using KVC here avoids the need to add a custom class to the template.
-        newManagedObject.setValue(NSDate(), forKey: "timeStamp")
-             
-        // Save the context.
-        var error: NSError? = nil
-        if !context.save(&error) {
-            // Replace this implementation with code to handle the error appropriately.
-            // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-            //println("Unresolved error \(error), \(error.userInfo)")
-            abort()
-        }
+    
+    func showImagePicker(sender: AnyObject) {
+        var imagePickerController = UIImagePickerController()
+        imagePickerController.modalInPopover = true
+        imagePickerController.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+        imagePickerController.delegate = self
+        self.imagePickerController = imagePickerController
+        self.presentViewController(self.imagePickerController, animated: true, completion: nil)
     }
+    
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        picker.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func imagePickerController(picker: UIImagePickerController!, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
+        
+        picker.dismissViewControllerAnimated(true, completion: nil)
 
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), {() -> Void in
+            
+            let receipt = Receipt.createEntity() as Receipt
+            let original_image = info["UIImagePickerControllerOriginalImage"] as UIImage
+            
+            original_image.fixOrientation()
+            
+            var size = CGSize(width: original_image.size.width * 0.3, height: original_image.size.height * 0.3)
+            UIGraphicsBeginImageContext(size)
+            original_image.drawInRect(CGRect(x: 0, y: 0, width: size.width, height: size.height))
+            var newImage = UIGraphicsGetImageFromCurrentImageContext()
+            UIGraphicsEndImageContext()
+            
+            receipt.id = NSUUID().UUIDString
+            receipt.ts = NSDate()
+            receipt.image = UIImageJPEGRepresentation(original_image, 0.8)
+            
+            let tess = Tesseract()// -- English
+            tess.image = newImage
+            tess.recognize()
+            
+            NSLog("%@", tess.recognizedText)
+            NSLog("%@", newImage)
+            
+            
+            dispatch_async(dispatch_get_main_queue(), {() -> Void in
+                self.receipts.append(receipt)
+            })
+            
+            
+            
+            NSManagedObjectContext.defaultContext().saveToPersistentStoreAndWait()
+        })
+    }
+    
     // MARK: - Segues
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -113,7 +153,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
 
     func configureCell(cell: UITableViewCell, atIndexPath indexPath: NSIndexPath) {
         let object = self.fetchedResultsController.objectAtIndexPath(indexPath) as NSManagedObject
-        cell.textLabel.text = object.valueForKey("timeStamp")!.description
+        cell.textLabel?.text = object.valueForKey("ts")!.description
     }
 
     // MARK: - Fetched results controller
@@ -125,14 +165,14 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         
         let fetchRequest = NSFetchRequest()
         // Edit the entity name as appropriate.
-        let entity = NSEntityDescription.entityForName("Event", inManagedObjectContext: self.managedObjectContext!)
+        let entity = NSEntityDescription.entityForName("Receipt", inManagedObjectContext: self.managedObjectContext!)
         fetchRequest.entity = entity
         
         // Set the batch size to a suitable number.
         fetchRequest.fetchBatchSize = 20
         
         // Edit the sort key as appropriate.
-        let sortDescriptor = NSSortDescriptor(key: "timeStamp", ascending: false)
+        let sortDescriptor = NSSortDescriptor(key: "ts", ascending: false)
         let sortDescriptors = [sortDescriptor]
         
         fetchRequest.sortDescriptors = [sortDescriptor]
