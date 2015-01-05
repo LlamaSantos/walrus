@@ -12,6 +12,7 @@
 #import <Foundation/Foundation.h>
 #import <MagicalRecord/MagicalRecord.h>
 #import <TesseractOCR/TesseractOCR.h>
+#import <AFNetworking/AFNetworking.h>
 
 #define MR_SHORTHAND
 #import "CoreData+MagicalRecord.h"

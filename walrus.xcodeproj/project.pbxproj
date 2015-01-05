@@ -16,6 +16,7 @@
 		E354ED931A2C32A1003421A6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E354ED921A2C32A1003421A6 /* Images.xcassets */; };
 		E354ED961A2C32A1003421A6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E354ED941A2C32A1003421A6 /* LaunchScreen.xib */; };
 		E354EDA21A2C32A1003421A6 /* walrusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E354EDA11A2C32A1003421A6 /* walrusTests.swift */; };
+		E35F2ACC1A4A6DD000117CAC /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35F2ACB1A4A6DD000117CAC /* ScannerViewController.swift */; };
 		E3EA39F81A315BCB002D932C /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3EA39F71A315BCB002D932C /* UIImageExtensions.swift */; };
 		E3F5C4DD1A302BE70054AE7C /* Receipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F5C4DC1A302BE70054AE7C /* Receipt.swift */; };
 		E3F5C5101A3052F10054AE7C /* eng.cube.bigrams in CopyFiles */ = {isa = PBXBuildFile; fileRef = E3F5C4FD1A30526E0054AE7C /* eng.cube.bigrams */; };
@@ -77,6 +78,7 @@
 		E354ED9B1A2C32A1003421A6 /* walrusTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = walrusTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E354EDA01A2C32A1003421A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E354EDA11A2C32A1003421A6 /* walrusTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = walrusTests.swift; sourceTree = "<group>"; };
+		E35F2ACB1A4A6DD000117CAC /* ScannerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
 		E3EA39F71A315BCB002D932C /* UIImageExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIImageExtensions.swift; path = ../UIImageExtensions.swift; sourceTree = "<group>"; };
 		E3F5C4DC1A302BE70054AE7C /* Receipt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Receipt.swift; sourceTree = "<group>"; };
 		E3F5C4FD1A30526E0054AE7C /* eng.cube.bigrams */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = eng.cube.bigrams; path = walrus/tessdata/eng.cube.bigrams; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 				E354ED861A2C32A1003421A6 /* AppDelegate.swift */,
 				E354ED8B1A2C32A1003421A6 /* MasterViewController.swift */,
 				E354ED8D1A2C32A1003421A6 /* DetailViewController.swift */,
+				E35F2ACB1A4A6DD000117CAC /* ScannerViewController.swift */,
 				E354ED8F1A2C32A1003421A6 /* Main.storyboard */,
 				E354ED921A2C32A1003421A6 /* Images.xcassets */,
 				E354ED941A2C32A1003421A6 /* LaunchScreen.xib */,
@@ -343,6 +346,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E35F2ACC1A4A6DD000117CAC /* ScannerViewController.swift in Sources */,
 				E3F5C4DD1A302BE70054AE7C /* Receipt.swift in Sources */,
 				E354ED871A2C32A1003421A6 /* AppDelegate.swift in Sources */,
 				E354ED8A1A2C32A1003421A6 /* walrus.xcdatamodeld in Sources */,

@@ -11,7 +11,7 @@ import CoreData
 import AVFoundation
 import ImageIO
 
-class MasterViewController: UITableViewController, NSFetchedResultsControllerDelegate,UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class MasterViewController: UITableViewController, NSFetchedResultsControllerDelegate,UIImagePickerControllerDelegate, UINavigationControllerDelegate, ScannerDelegate, UIWebViewDelegate {
 
     var detailViewController: DetailViewController? = nil
     var managedObjectContext: NSManagedObjectContext? = nil
@@ -49,12 +49,29 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     }
     
     func showImagePicker(sender: AnyObject) {
+        /*
         var imagePickerController = UIImagePickerController()
         imagePickerController.modalInPopover = true
         imagePickerController.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
         imagePickerController.delegate = self
         self.imagePickerController = imagePickerController
         self.presentViewController(self.imagePickerController, animated: true, completion: nil)
+        */
+        
+        var scanner = self.storyboard?.instantiateViewControllerWithIdentifier("Scanner") as ScannerViewController
+        self.presentViewController(scanner, animated: true, completion: { () -> Void in })
+    }
+    
+    func scanCompletion(value: String) {
+        let web = UIWebView()
+        var url = NSURL(string: value)
+        var request = NSURLRequest(URL: url!)
+        web.delegate = self
+        web.loadRequest(request)
+
+    }
+    
+    func webViewDidFinishLoad(webView: UIWebView) {
     }
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
@@ -70,9 +87,9 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
             let receipt = Receipt.createEntity() as Receipt
             let original_image = info["UIImagePickerControllerOriginalImage"] as UIImage
             
-            original_image.fixOrientation()
+            //original_image.fixOrientation()
             
-            var size = CGSize(width: original_image.size.width * 0.3, height: original_image.size.height * 0.3)
+            var size = CGSize(width: original_image.size.width, height: original_image.size.height)
             UIGraphicsBeginImageContext(size)
             original_image.drawInRect(CGRect(x: 0, y: 0, width: size.width, height: size.height))
             var newImage = UIGraphicsGetImageFromCurrentImageContext()
